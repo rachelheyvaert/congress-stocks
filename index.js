@@ -19,8 +19,11 @@ fetch(fetchURL)
 
 function displayConMember() {
 //create elements
+const repNameH2 = document.createElement('h2')
+const ownerP = document.createElement('p')
+const assetDescription = document.createElement('p')
+const amountP = document.createElement('p')
 }
-
 //renderData
 
 //display Member
