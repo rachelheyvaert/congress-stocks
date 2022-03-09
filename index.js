@@ -1,7 +1,6 @@
 //grabbing html elements in global scope
 const fetchURL = "https://house-stock-watcher-data.s3-us-west-2.amazonaws.com/data/all_transactions.json"
 const form = document.getElementById('stock-search-form')
-const searchField = document.getElementById('search')
 const searchBtn = document.getElementById('searchBtn')
 const congressContainer = document.getElementById('congress-container')
 const ul = document.getElementById('stock-list')
@@ -9,6 +8,10 @@ const ul = document.getElementById('stock-list')
 
 document.addEventListener('DOMContentLoaded', ()=> {
 handleInitialFetch() //want to store data so it doesn't all fetch upon event listener,possible?
+const searchField = document.getElementById('searchField')
+searchField.onkeyup = ()=>{
+    console.log(searchField)
+}  
 })
 
 //submit button-filters fetched data to return only the matching input by name
@@ -19,7 +22,7 @@ submitBtn.addEventListener('click', ()=>{
 
 //fetching data
 function handleInitialFetch(){
-fetch(fetchURL) 
+fetch(`fetchURL?=${}`) 
 .then(response => response.json())
 .then(data => console.log(data))}
 
@@ -47,6 +50,7 @@ searchField.addEventListener('submit', handleSearch)
 
 //function to handle the search
 function handleSearch(e){
+    fetch(`fetchURL${data.name}`)
 const value = e.target.value.toLowerCase();
 }
 
