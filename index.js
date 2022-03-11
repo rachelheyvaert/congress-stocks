@@ -27,9 +27,7 @@ function handleUserInput(){
     searchField.addEventListener("input", (e) => {
         let value = e.target.value
         console.log("Filtered Data", filterData(value))
-        // if (value && value.trim().length > 0){
-        // value = value.trim().toLowerCase()
-        // } else {}
+       
 })
 }
 
@@ -50,15 +48,13 @@ function renderMemberToDOM(data){
 function createCard(data){
     console.log("Create card", data)
     ul.innerHTML += `
-    <h3>${data.representative}</h3>
-    <h4>Asset Description: </h4>
-    <p>${data.asset_description}</p>
-    <h4>Stock Symbol/Ticker: </h4>
-    <p>${data.ticker}</p>
-    <h4>Amount: </h4>
-    <p>${data.amount}</p>
-    <h4>Transaction Date: </h4>
-    <p>${data.transaction_date}</p>
+    <p>Asset Description:  ${data.asset_description}</p>
+    <p>Stock Symbol/Ticker: ${data.ticker}</p>
+    <p>Amount: ${data.amount}</p>
+    <p>Type:  ${data.type}</p>
+    <p>Transaction Date: ${data.transaction_date}</p>
+    <br>
     `
-    congressContainer.append(ul);
+    ul.id = 'stock-cards'
+    congressContainer.appendChild(ul);
 }
